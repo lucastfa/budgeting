@@ -54,6 +54,13 @@ As an extra scope of this task I would check if both parts of the application ar
 * Make sure you have `Google Chrome` installed.
 * Run one of the rake tasks created in `Rakefile`:
 * `bundle exec rake test_e2e`: just run all the 3 created scenarios.
-* `bundle exec rake test_e2e_reports: run the scenarios and create an html report.
+* `bundle exec rake test_e2e_reports`: run the scenarios and create an html report.
 
 Notes: the HTML report will be saved in a folder called reports, also when a test fail a screenshot is saved in the folder screenshots. Screenshots are saved using the date to make it easy to identify when it ran. Reports are kept only the last execution.
+
+### About the failing test
+From the 3 automated scenarios, one of them is failing: `Adds a big expense that changes the balance to negative`.
+
+This happens because there is a bug in the system: when the expenses are bigger than the incomes, the working balance is still being showed as positive and not negative.
+
+So for example if I have a total of $250 incomes and a total of $750 expenses, the system is showing $500 as the balance, but it has to show -$500. This is a critical issue because it can make the user thinks that its finances are good when in reality it's bad.
