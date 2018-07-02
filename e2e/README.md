@@ -76,7 +76,7 @@ In my solution I made use of the following gems:
 
 ## Want to contribute? Know the structure
 Here is how the tests and automation code are organized:
-* `features` folder:
-* `features/step_definitions` folder:
-* `features/pages` folder:
-* `features/support` folder:
+* `features` folder: in this folder's root are placed all the feature files, where we can write test cases that will be automated. The files are separated by feature. So for example, if a test for reports will be automated it should be put in a file named  `reports.feature`.
+* `features/step_definitions` folder: here the automated steps will be written. Please create new file for each new feature we have on `features` to keep the organization folder.
+* `features/pages` folder: here are the page classes for the page objects model. Please follow the pattern and create a page class for each page/section that will be tested in the application.
+* `features/support` folder: here we have then `env.rb` file, where general configurations for the test execution are being done, like browser assignment, screenshot configurations, etc.
