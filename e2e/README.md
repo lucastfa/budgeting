@@ -7,6 +7,7 @@ As the application does not have a human readable documentation where we can che
 
 Here are the test cases:
 
+```
 Feature: Budget
 
 As a personal budget user
@@ -33,19 +34,26 @@ When the user adds a Misc named Expense with value 50000
 Then the added Expense should be visible with value -$50,000.00 in the bottom of the budget list
 And the total outflow should be updated by 50000
 And the working balance should be updated by -50000
+```
+
+```
+Feature: Reports
+```
 
 ## Strategy on automation
 With the test cases in hands I decided to select 3 of them to automate, using the cucumber framework, so we can use the already written test cases and the BDD approach. This way all the team members (tech and non tech) will have the visibility of what is being developed and tested just reading the feature files.
 
-The test cases selection was made by choosing the critical part of the system: the expenses input. If this part has a problem, the reports part would not behave well, of course. And also this the basic usage of the system, like the core. Without this part working the system would be useless for the final user.
+The test cases selection was made by choosing the critical part of the system: the expenses input. If this part has a problem, the reports part would not behave well, of course. And also this the basic usage of the system, like the core. Without this part working fine, the system would be useless for the final user.
+
+As an extra scope of this task I would check if both parts of the application are well covered in a unit test level, so we can balance the pyramid and have a better strategy on which scenarios to automate or not.
 
 ## How to execute the automation code
-* Make sure you have Ruby and bundler gem installed (if not after Ruby installation run gem install bundler).
-* Go to e2e folder.
-* Install the dependencies running bundle install.
-* Make sure you have Google Chrome installed.
-* Run one of the rake tasks created in Rakefile:
-* bundle exec rake test_e2e: just run all the 3 created scenarios.
-* bundle exec rake test_e2e_reports: run the scenarios and create an html report.
+* Make sure you have Ruby and bundler gem installed (if not after Ruby installation run `gem install bundler`).
+* Go to `e2e` folder.
+* Install the dependencies running `bundle install`.
+* Make sure you have `Google Chrome` installed.
+* Run one of the rake tasks created in `Rakefile`:
+* `bundle exec rake test_e2e`: just run all the 3 created scenarios.
+* `bundle exec rake test_e2e_reports: run the scenarios and create an html report.
 
-Notes: the HTML report will be saved in a folder called reports, also when a test fail a screenshot is saved in the folder screenshots. Screenshots are saved using the date to make it easy to identify when it ran. Reports are keeped only the last execution.
+Notes: the HTML report will be saved in a folder called reports, also when a test fail a screenshot is saved in the folder screenshots. Screenshots are saved using the date to make it easy to identify when it ran. Reports are kept only the last execution.
