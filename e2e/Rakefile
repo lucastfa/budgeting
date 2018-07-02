@@ -1,0 +1,16 @@
+
+require 'rubygems'
+require 'cucumber'
+require 'cucumber/rake/task'
+
+desc 'Execute cucumber e2e scenarios'
+task :test_e2e do
+  puts 'Running cucumber e2e scenarios'
+  sh 'bundle exec cucumber'
+end
+
+desc 'Execute cucumber e2e scenarios with reports'
+task :test_e2e_reports do
+  puts 'Running cucumber e2e scenarios with reports'
+  sh 'bundle exec cucumber --format html --out reports/report.html --format pretty'
+end
