@@ -64,3 +64,19 @@ From the 3 automated scenarios, one of them is failing: `Adds a big expense that
 This happens because there is a bug in the system: when the expenses are bigger than the incomes, the working balance is still being showed as positive and not negative.
 
 So for example if I have a total of $250 incomes and a total of $750 expenses, the system is showing $500 as the balance, but it has to show -$500. This is a critical issue because it can make the user thinks that its finances are good when in reality it's bad.
+
+## About the used gems
+In my solution I made use of the following gems:
+* Cucumber: as already mentioned I used Cucumber to have the benefit of have a live documentation of the system and the tests. During the product development would be good to make use of Cucumber with the BDD so we can take advantages of Cucumber features and not only to have it written and forgotten.
+* Capybara: it's a framework that makes the selenium automated tests more readable and easy to maintain and write.
+* RSpec: to make the tests assertions.
+* Pry: debug the code while the test is being created.
+* Site Prism: I decided to use the page objects model to keep the code well organized, with the elements and operations made on them isolated in respective classes. This way changes on the application would have small impact on the test suite, and the become more easy to read and maintain. Site Prism is a gem that implements the page objects model for capybara.
+* Rake: to create tasks and facilitate the execution of them, so the person who is executing does not need to write complex commands every time. Just need to read the documentation and run it!
+
+## Want to contribute? Know the structure
+Here is how the tests and automation code are organized:
+* `features` folder:
+* `features/step_definitions` folder:
+* `features/pages` folder:
+* `features/support` folder:
