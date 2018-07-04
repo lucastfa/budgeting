@@ -6,6 +6,7 @@ class BudgetPage < SitePrism::Page
   element :description_input, 'input[name="description"]'
   element :value_input, 'input[name="value"]'
   element :add_button, '.containers-EntryFormRow-style-formSection button'
+  element :selected_menu_item, '.components-Header-style-selected'
 
   elements :added_items_information, '.components-BudgetGridRow-style-cellContent'
 
@@ -16,6 +17,7 @@ class BudgetPage < SitePrism::Page
   @previousBalanceAmount = 0
 
   def verify_page_loaded
+    selected_menu_item.text == 'Budget'
   end
 
   def input_item (category, derscription, value)
